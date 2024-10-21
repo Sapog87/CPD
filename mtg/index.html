@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MTG Lab</title>
+    <meta charset="UTF-8" />
+
+    <script src="src/index.js" type="module"></script>
+    <link href="styles/app.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <h1>MTG Deck Builder</h1>
+</header>
+    <main class="main">
+        <div id="menu">
+            <input id='searchField' type="text" name="search" />
+            <button id='searchButton' type="submit">Search<i class="fa fa-search"></i></button>
+            <h2>Cards</h2>
+            <div></div>
+            <div id="listContainer"></div>
+            <button id="listButton">Next</button>
+        </div>
+
+        <div class="content">
+            <div id="cardsContainer">
+                <div id="deck" class="deck">
+
+                </div>
+                <div id="cardInspector" class="deck">
+
+                </div>
+            </div>
+        </div>
+        <div id="stats">
+            <h2>Stats</h2>
+            <div class="widgets">
+                <div id = "manaStats">
+
+                </div>
+                <div id = "colorStats">
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+<footer>
+
+</footer>
+</body>
+</html>
