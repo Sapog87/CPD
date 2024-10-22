@@ -3,16 +3,17 @@
 }
 
 .content {
-    flex-grow: 0.6;
+    width: 50%;
 }
 #menu{
-    flex-grow: 0.2;
+    width: 20%;
     height: 800px;
     overflow: hidden;
     overflow-y: scroll;
     border: black 1px solid;
 }
 #stats{
+    width: 30%;
     flex-grow: 0.2;
     height: 800px;
     overflow: hidden;
@@ -47,5 +48,46 @@
     height: 400px;
     overflow: hidden;
     overflow-x: scroll;
+    overflow-y: scroll;
     border: black 1px solid;
+}
+.inspector{
+    flex-grow: 0.2;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: black 1px solid;
+}
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    margin: 0 auto;
+}
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.card p {
+    margin: 10px 0;
+}
+.mana-cost {
+    font-weight: bold;
+    color: #333;
+}
+.rarity {
+    color: darkorange;
+    font-weight: bold;
+}
+.deckCards{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
 }
