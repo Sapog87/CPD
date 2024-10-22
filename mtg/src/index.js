@@ -1,6 +1,7 @@
 import {Mtg} from "./api/mtg";
 import {ColorStats} from "./widgets/colorStats";
 import {ManaCostStats} from "./widgets/manaCostStats";
+import './helpers/helper'
 
 document.addEventListener("DOMContentLoaded", setup)
 
@@ -17,7 +18,7 @@ function setup() {
     const deck = document.getElementById('deckCards');
     const cardInspector = document.getElementById('cardInspector');
 
-    const deckMap = {}
+    deckMap = {}
 
     const colorStats = new ColorStats()
     const manaCostStats = new ManaCostStats()
@@ -125,14 +126,20 @@ function setup() {
             colors.innerHTML = `<strong>Colors:</strong> ${card.colorIdentity.join(', ')}`;
             cardElement.appendChild(colors);
         }
-
+        
         const type = document.createElement('p');
         type.innerHTML = `<strong>Type:</strong> ${card.type}`;
         cardElement.appendChild(type);
 
-        const text = document.createElement('p');
-        text.innerHTML = `<strong>Card Text:</strong> ${card.text.replace(/\n/g, '<br>')}`;
-        cardElement.appendChild(text);
+        if (card.text){
+            const text = document.createElement('p');
+            text.innerHTML = `<strong>Card Text:</strong> ${card.text.replace(/\n/g, '<br>')}`;
+            cardElement.appendChild(text);
+        }else if (card.originalText){
+            const text = document.createElement('p');
+            text.innerHTML = `<strong>Card Orinal Text:</strong> ${card.originalText.replace(/\n/g, '<br>')}`;
+            cardElement.appendChild(text);
+        }
 
         const rarity = document.createElement('p');
         rarity.innerHTML = `<strong>Rarity:</strong> <span class="rarity">${card.rarity}</span>`;
@@ -203,9 +210,5 @@ function setup() {
             })
             menu.innerHTML = ''
             menu.appendChild(list);
-
-            colorStats.buildStats(document.getElementById("colorStats"), deckMap, cardss);
-            manaCostStats.buildStats(document.getElementById("manaStats"), deckMap, cardss);
-
         })
 }
