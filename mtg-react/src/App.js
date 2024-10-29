@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { createContext, useContext, useState } from 'react';
 import './App.css';
+import Content from './deck/Content';
+import Search from './search/Search';
+import Widget from './widget/Widget';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const CardsContext = createContext();
+
+export default function App() {
+    const [currentCard, setCurrentCard] = useState(null)
+    const [deck, setDeck] = useState([])
+    const [cardsVault, setCardsVault] = useState({})
+    const [deckChanged, setDeckChanged] = useState(false)
+    const [rerender, forceRender] = useState(0);
+
+    return (
+        <CardsContext.Provider value={{ cardsVault, currentCard, deck, setCurrentCard, forceRender, rerender }}>
+            <div className='Main'>
+                <Search />
+                <Content />
+                <Widget />
+            </div>
+        </CardsContext.Provider>
+    );
 }
 
-export default App;
+export const useCards = () => useContext(CardsContext);

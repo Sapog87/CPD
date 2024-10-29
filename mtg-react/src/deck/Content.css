@@ -1,0 +1,60 @@
+.Content {
+    width: 50%;
+}
+
+.Deck {
+    flex-grow: 0.2;
+    height: 400px;
+    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    border: black 1px solid;
+}
+
+.Inspector {
+    flex-grow: 0.2;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: black 1px solid;
+}
+
+.Card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.Card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.Card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.Card p {
+    margin: 10px 0;
+}
+
+.Mana-cost {
+    font-weight: bold;
+    color: #333;
+}
+
+.Rarity {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.DeckCards {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
